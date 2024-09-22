@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:latest
+    build:
+      context: src
+      dockerfile: Dockerfile
+    ports:
+      - "5232:5432"
+    environment:
+      POSTGRES_USER: aboba1337
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: article
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
